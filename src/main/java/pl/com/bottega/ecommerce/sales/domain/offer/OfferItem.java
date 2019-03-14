@@ -41,10 +41,7 @@ public class OfferItem {
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
-        if (!Objects.equals(product, other.product)
-            || !Objects.equals(quantity, other.quantity)
-            || !Objects.equals(totalCost, other.totalCost)
-            || !Objects.equals(delta, other.discount)) {
+        if (!this.equals(other)) {
             return false;
         }
 
@@ -52,12 +49,12 @@ public class OfferItem {
        return isPriceSimillar(other, delta);
     }
 
-    private boolean isPriceSimillar(OfferItem other, double deltas) {
-        Money max;
-        Money min;
-        if (totalCost.compareTo(other.totalCost) > 0) {
-            max = totalCost;
-            min = other.totalCost;
+    private boolean isPriceSimillar(OfferItem other, double delta) {
+        BigDecimal max;
+        BigDecimal min;
+        if (totalCost.getAsPLN().compareTo(other.totalCost.getAsPLN()) > 0) {
+            max = totalCost.getAmount();
+            min = other.totalCost.getAmount();
         } else {
             max = other.totalCost.getAmount();
             min = totalCost.getAmount();
