@@ -15,11 +15,11 @@ public class Money {
         JURO
     }
 
-    private Currency currency;
-    private BigDecimal amount;
-
-    private BigDecimal getAsPLN() {
+    public BigDecimal getAsPLN() {
         //TODO: Add conversion
         return new BigDecimal(0);
     }
+
+    private Currency currency;
+    private BigDecimal amount;
 }
