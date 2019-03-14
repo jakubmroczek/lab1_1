@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class ProductSnapshot {
-    private long id;
+    private String id;
     private String name;
     private String type;
     private Date snapshot;
